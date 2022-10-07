@@ -1,5 +1,5 @@
 const Customer = require('./../models/customerModel');
-const APIFeatures = require('./../dataBaseManager/loanDbContext');
+const APIFeatures = require('./../dBManager/loanDbContext');
 
 exports.getAllCustomers =   async (req, res) => {
   try {

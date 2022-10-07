@@ -2,11 +2,12 @@ const mongoose = require('mongoose');
 
 const customerSchema = new mongoose.Schema(
     {
-        id: {
-            type: Number,
-            required: true,
-            unique: true,
-        },
+        // id: {
+        //     type: Number,
+        //     required: true,
+        //     unique: true,
+        //     index: true
+        // },
         name: {
             type: String,
             required: [true, 'Customer name must be provided'],
@@ -46,17 +47,22 @@ const customerSchema = new mongoose.Schema(
         },
         createdDate: {
             type: Date,
-            default: new Date.now()
+            required: true,
+            default: Date.now()
         },
         modifiedDate: {
             type: Date,
-            default: new Date.now()
+            required: true,
+            default: Date.now()
         },
         isDeleted: {
-            type: Boolean
+            type: Boolean,
+            required: true,
+            default: "false"
         }
     });
 
+customerSchema.index({id: 1});
 const Customer = mongoose.model('Customer', customerSchema);
 
 module.exports = Customer;

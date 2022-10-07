@@ -1,5 +1,5 @@
 const Ledger = require('./../models/ledgerModel');
-const APIFeatures = require('./../dataBaseManager/loanDbContext');
+const APIFeatures = require('./../dbManager/loanDbContext');
 
 exports.getAllLedgers =   async (req, res) => {
   try {

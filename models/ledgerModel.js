@@ -23,11 +23,11 @@ const ledgerSchema = new mongoose.Schema(
         },
         createdDate: {
             type: Date,
-            default: new Date.now()
+            default: Date.now()
         },
         modifiedDate: {
             type: Date,
-            default: new Date.now()
+            default: Date.now()
         },
         isDeleted: {
             type: Boolean

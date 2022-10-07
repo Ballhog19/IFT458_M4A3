@@ -4,7 +4,7 @@ const loanSchema = new mongoose.Schema(
     {
         id: {
             type: Number,
-            required: true,
+            required: false,
             unique: true
         },
         loanType: {
@@ -43,14 +43,18 @@ const loanSchema = new mongoose.Schema(
         },
         createdDate: {
             type: Date,
-            default: new Date.now()
+            required: true,
+            default: Date.now().toString()
         },
         modifiedDate: {
             type: Date,
-            default: new Date.now()
+            required: true,
+            default: Date.now().toString()
         },
         isDeleted: {
-            type: Boolean
+            type: Boolean,
+            required: true,
+            default: "false"
         }
     });
 
