@@ -67,6 +67,24 @@ exports.createCustomer = async  (req, res) => {
   }
 };
 
+exports.createMany = async (req, res) => {
+    try {
+        const newCustomers = await Customer.insertMany(req.body);
+
+        res.status(201).json({
+            status: 'success',
+            data: {
+              results: newCustomers
+            }
+          });
+        } catch (err) {
+          res.status(400).json({
+            status: 'fail',
+            message: err
+          });
+    }
+}
+
 exports.updateCustomer = async (req, res) => {
   try {
     const customer = await Customer.findByIdAndUpdate(req.params.id, req.body, {

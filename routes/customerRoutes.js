@@ -8,6 +8,10 @@ router
     .post(customerController.createCustomer);
 
 router
+    .route('/multi')
+    .post(customerController.createMany);
+
+router
     .route('/:id')
     .get(customerController.getCustomer)
     .patch(customerController.updateCustomer)
