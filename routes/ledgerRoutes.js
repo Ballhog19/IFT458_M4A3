@@ -8,6 +8,10 @@ router
     .post(ledgerController.createLedger);
 
 router
+    .route('/multi')
+    .post(ledgerController.createMany);
+
+router
     .route('/:id')
     .get(ledgerController.getLedger)
     .patch(ledgerController.updateLedger)

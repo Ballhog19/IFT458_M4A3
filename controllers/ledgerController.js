@@ -1,5 +1,6 @@
 const Ledger = require('./../models/ledgerModel');
 const APIFeatures = require('./../dbManager/loanDbContext');
+const Customer = require("../models/customerModel");
 
 exports.getAllLedgers =   async (req, res) => {
   try {
@@ -67,6 +68,24 @@ exports.createLedger = async  (req, res) => {
   }
 };
 
+exports.createMany = async (req, res) => {
+  try {
+    const newCustomers = await Ledger.insertMany(req.body);
+
+    res.status(201).json({
+      status: 'success',
+      data: {
+        results: newCustomers
+      }
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err
+    });
+  }
+}
+
 exports.updateLedger = async (req, res) => {
   try {
     const ledger = await Ledger.findByIdAndUpdate(req.params.id, req.body, {
@@ -94,7 +113,7 @@ exports.deleteLedger = async (req, res) => {
 
     res.status(204).json({
       status: 'success',
-      data: null
+      data: "Successfully Deleted Ledger"
     });
   } catch (err) {
     res.status(404).json({

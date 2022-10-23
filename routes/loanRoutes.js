@@ -8,6 +8,10 @@ router
     .post(loanController.createLoan);
 
 router
+    .route('/multi')
+    .post(loanController.createMany);
+
+router
     .route('/:id')
     .get(loanController.getLoan)
     .patch(loanController.updateLoan)

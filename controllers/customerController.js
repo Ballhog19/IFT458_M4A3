@@ -112,7 +112,7 @@ exports.deleteCustomer = async (req, res) => {
 
     res.status(204).json({
       status: 'success',
-      data: null
+      data: "Successfully Deleted Customer"
     });
   } catch (err) {
     res.status(404).json({

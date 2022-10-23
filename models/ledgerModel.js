@@ -4,7 +4,7 @@ const ledgerSchema = new mongoose.Schema(
     {
         id: {
             type: Number,
-            required: true,
+            required: false,
             unique: true
         },
         paymentAmount: {

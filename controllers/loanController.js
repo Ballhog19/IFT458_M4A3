@@ -67,6 +67,24 @@ exports.createLoan = async  (req, res) => {
   }
 };
 
+exports.createMany = async (req, res) => {
+  try {
+    const newCustomers = await Loan.insertMany(req.body);
+
+    res.status(201).json({
+      status: 'success',
+      data: {
+        results: newCustomers
+      }
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err
+    });
+  }
+}
+
 exports.updateLoan = async (req, res) => {
   try {
     const loan = await Loan.findByIdAndUpdate(req.params.id, req.body, {
@@ -94,7 +112,7 @@ exports.deleteLoan = async (req, res) => {
 
     res.status(204).json({
       status: 'success',
-      data: null
+      data: "Successfully Deleted Loan"
     });
   } catch (err) {
     res.status(404).json({

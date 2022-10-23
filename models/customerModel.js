@@ -2,12 +2,11 @@ const mongoose = require('mongoose');
 
 const customerSchema = new mongoose.Schema(
     {
-        // id: {
-        //     type: Number,
-        //     required: true,
-        //     unique: true,
-        //     index: true
-        // },
+        id: {
+            type: Number,
+            required: false,
+            unique: true
+        },
         name: {
             type: String,
             required: [true, 'Customer name must be provided'],
@@ -20,8 +19,7 @@ const customerSchema = new mongoose.Schema(
             type: String,
             required: [true, 'First name is required'],
             unique: false,
-            trim: true,
-            minLength: [2, 'First name must be at least 2 characters']
+            trim: true
         },
         middleName: {
             type: String,
@@ -34,7 +32,7 @@ const customerSchema = new mongoose.Schema(
             required: true,
             unique: false,
             trim: true,
-            maxLength: [20, 'Last Name must be less than 20 characters']
+            maxLength: [50, 'Last Name must be less than 50 characters']
         },
         dateOfBirth: {
             type: Date,
